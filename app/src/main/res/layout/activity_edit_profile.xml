@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:background="@color/cream"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Menu.EditProfile">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp">
+
+        <include
+            android:id="@+id/inc"
+            layout="@layout/toolbar_editprofil"/>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/editgambar"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <EditText
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:id="@+id/editnamagambar"
+                android:layout_width="200dp"
+                android:layout_height="50dp"/>
+
+            <Button
+                android:id="@+id/editpilihfoto"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_ijo10"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Pilih Foto"
+                android:textColor="@color/cream"/>
+
+            <LinearLayout
+                android:background="@drawable/bg_ijomuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/akun2"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/namaedit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="Ubah Nama"
+                            android:textColor="@color/darkgreen"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/editnama"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="Nama"
+                            android:textColorHint="@color/darkgreen"
+                            android:textSize="12dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bg_ijomuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/gmail2"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/emailedit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="Ubah Email"
+                            android:textColor="@color/darkgreen"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/editemail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="Email"
+                            android:textColorHint="@color/darkgreen"
+                            android:textSize="12dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bg_ijomuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/call"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/nohpedit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="Ubah No. Handphone"
+                            android:textColor="@color/darkgreen"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/editnohp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="No. Handphone"
+                            android:textColorHint="@color/darkgreen"
+                            android:textSize="12dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bg_ijomuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/pw"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/passwordedit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="Ubah Password"
+                            android:textColor="@color/darkgreen"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/editpassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="Password"
+                            android:textColorHint="@color/darkgreen"
+                            android:textSize="12dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+<!--            <EditText-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColorHint="@color/mainTextDark"-->
+<!--                android:id="@+id/editemail"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:hint="Email"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <EditText-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColorHint="@color/mainTextDark"-->
+<!--                android:id="@+id/editpassword"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:hint="Password"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <EditText-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColorHint="@color/mainTextDark"-->
+<!--                android:id="@+id/editnama"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:hint="Nama"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <EditText-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColorHint="@color/mainTextDark"-->
+<!--                android:id="@+id/editnohp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:hint="Nomor Telepon"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <EditText-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:id="@+id/editnamagambar"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="50dp"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/editpilihfoto"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/m_button"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:text="Pilih Foto"/>-->
+
+            <Button
+                android:id="@+id/btneditsimpan"
+                android:text="Simpan"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_lightgreen"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@color/cream"
+                android:textSize="15dp"
+                android:layout_marginBottom="20dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

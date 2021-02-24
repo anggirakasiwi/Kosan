@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/cream"
+    android:layout_height="match_parent"
+    tools:context=".Menu.Menu_Harga">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/inc"
+            layout="@layout/toolbar_menuutama"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Data Kosan Termurah"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/darkgreen"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/transparant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/listhargakosan"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

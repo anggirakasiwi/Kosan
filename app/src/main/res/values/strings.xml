@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">E-Kosan</string>
+    <string name="login">Menu Login</string>
+    <string name="InsertEmail">Masukan Email</string>
+    <string name="Password">Masukan Password</string>
+    <string name="In">Sign In</string>
+    <string name="register">Register</string>
+    <string name="belum">Belum Punya Akun?</string>
+    <string name="sudah">Sudah Punya Akun?</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiaGFuaWYxNjI1IiwiYSI6ImNrYzA0bW9nejE4bmMycnBrc3l3ZDAxc2MifQ.ITpgknZVS4CB564TzX5kxQ</string>
+</resources>

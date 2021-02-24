@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream"
+    tools:context=".Menu.Menu_Profile">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/inc"
+            layout="@layout/toolbar_profil"/>
+
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/gambarprofile"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:outlineSpotShadowColor="@color/darkgreen"
+                android:src="@drawable/adduser" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:id="@+id/namaprofile"
+            android:layout_width="match_parent"
+            android:text="Nama"
+            android:textColor="@color/darkgreen"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/gambarprofile"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="120dp"/>-->
+
+
+        <LinearLayout
+            android:background="@drawable/bg_ijomuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/gender"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Jenis Kelamin"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="15dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/jeniskelaminprofile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Perempuan"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="12dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:background="@drawable/bg_ijomuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/akun2"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:id="@+id/akun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Jenis Akun"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="15dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/jenisakunprofile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Penyewa"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="12dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:background="@drawable/bg_ijomuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/call"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:id="@+id/nohp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="No. Handphone"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="15dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/no_hp_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="085896959421"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="12dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:background="@drawable/bg_ijomuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/gmail2"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:id="@+id/profilemail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Email"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="15dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/emailprofile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="anggisiwi210798@gmail.com"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="12dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:background="@drawable/bg_ijomuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/lokasi"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:id="@+id/profilalamat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Alamat"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="15dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/alamatprofile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Teluk Betung Utara"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="12dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/emailprofile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:text="Email"-->
+<!--            android:textColor="@color/mainTextDark"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_height="25dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/passwordprofile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:text="Password"-->
+<!--            android:textColor="@color/mainTextDark"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_height="25dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/namaprofile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:text="Nama"-->
+<!--            android:textColor="@color/mainTextDark"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_height="25dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/no_hp_profile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:text="Nomor Handphone"-->
+<!--            android:textColor="@color/mainTextDark"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_height="25dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/alamatprofile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:text="Alamat"-->
+<!--            android:textColor="@color/mainTextDark"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_height="25dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/jeniskelaminprofile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:text="Jenis Kelamin"-->
+<!--            android:textColor="@color/mainTextDark"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_height="25dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/jenisakunprofile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:text="Jenis Akun"-->
+<!--            android:textColor="@color/mainTextDark"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_height="25dp"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/editprofile"
+                android:text="Edit Profil"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_lightgreen"
+                android:textColor="@color/cream"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/logoutprofile"
+            android:text="Log Out"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_lightgreen"
+            android:textSize="15dp"
+            android:textColor="@color/cream"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

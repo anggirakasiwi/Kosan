@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.e_kostan">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="Android.permission.READ_EXTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EKostan">
+        <activity android:name=".Menu.Menu_Harga"></activity>
+        <activity android:name=".Menu.Menu_Detail_Massage" />
+        <activity android:name=".Menu.Menu_Detail" />
+        <activity android:name=".Menu.Menu_Rating" />
+        <activity android:name=".Menu.DetailPesan" />
+        <activity android:name=".Menu.EditProfile" />
+        <activity android:name=".Menu.Notifikasi" />
+        <activity android:name=".Menu.TambahKosan" />
+        <activity android:name=".Menu_Pemilik.Dashboard_Pemilik" />
+        <activity android:name=".Menu.Menu_Help" />
+        <activity android:name=".Menu.Menu_Massage" />
+        <activity android:name=".Menu.Menu_Profile" />
+        <activity android:name=".Menu.Menu_Utama" />
+        <activity android:name=".Menu.Menu_Login" />
+        <activity android:name=".Menu.Menu_Register" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Menu.Menu_Splash_Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
