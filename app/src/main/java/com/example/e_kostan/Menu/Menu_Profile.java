@@ -29,7 +29,7 @@ SharedPrefManager sharedPrefManager;
         Email=(TextView) findViewById(R.id.emailprofile);
         Email.setText(sharedPrefManager.getSPEmail());
 //        Password=(TextView)findViewById(R.id.passwordprofile);
-//        Password.setText(sharedPrefManager.getSPPassword());
+        Password.setText(sharedPrefManager.getSPPassword());
         Nama=(TextView) findViewById(R.id.namaprofile);
         Nama.setText(sharedPrefManager.getSPNama());
         No_Hp=(TextView) findViewById(R.id.no_hp_profile);
@@ -73,15 +73,9 @@ SharedPrefManager sharedPrefManager;
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        goBackMenu();
-    }
-
-    public void goBackMenu(){
-        startActivity(new Intent(this, Menu_Utama.class));
-        finish();
-    }
+    public void onBackPressed(){
+        Back();
+ }
 
     private void Back() {
 //        Intent intent=new Intent(Menu_Profile.this,Menu_Utama.class);

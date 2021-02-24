@@ -252,7 +252,7 @@ SharedPrefManager sharedPrefManager;
     }
 
     private void Back() {
-        Intent intent=new Intent(EditProfile.this,Menu_Profile.class);
+        Intent intent=new Intent(EditProfile.this,Menu_Utama.class);
         startActivity(intent);
         finish();
     }

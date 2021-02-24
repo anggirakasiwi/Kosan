@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.e_kostan.Menu.Menu_Login;
 import com.example.e_kostan.R;
 
 public class Menu_Splash_Screen extends AppCompatActivity {

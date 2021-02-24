@@ -93,6 +93,23 @@ public interface ApiServices {
 
     @GET("tampiluser.php")
     Call <Response_User> Tampil_User();
+
     @GET("tampil_murah.php")
     Call <Response_Kosan> Tampil_Kosan_Murah();
+
+    @GET("tampil_termahal.php")
+    Call <Response_Kosan> Tampil_mahal();
+
+    @GET("rating.php")
+    Call <Response_Kosan> Rating();
+
+//    @GET("tampil_terdekat.php")
+//    Call<Response_Kosan> Tampil_Terdekat_mas();
+
+    @FormUrlEncoded
+    @POST("tampil_terdekat.php")
+    Call<Response_Kosan> Tampil_Terdekat_mas(
+            @Field("latitude") double latitude,
+            @Field("longitude") double longitude
+    );
 }

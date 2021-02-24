@@ -89,7 +89,7 @@ ImageView Profile,Help,Message;
         Termahal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Menu_Utama.this,Menu_Harga.class);
+                Intent intent=new Intent(Menu_Utama.this,Menu_Termahal.class);
                 startActivity(intent);
                 finish();
             }
@@ -97,7 +97,7 @@ ImageView Profile,Help,Message;
         Terdekat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Menu_Utama.this,Menu_Harga.class);
+                Intent intent=new Intent(Menu_Utama.this,Menu_Terdekat.class);
                 startActivity(intent);
                 finish();
             }
@@ -105,7 +105,7 @@ ImageView Profile,Help,Message;
         Rating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Menu_Utama.this,Menu_Harga.class);
+                Intent intent=new Intent(Menu_Utama.this,Rating.class);
                 startActivity(intent);
                 finish();
             }

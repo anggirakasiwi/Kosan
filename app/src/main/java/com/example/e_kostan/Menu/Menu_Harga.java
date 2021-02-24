@@ -79,15 +79,14 @@ public class Menu_Harga extends AppCompatActivity {
             }
         });
     }
-
-    public void onBackPressed() {
-        super.onBackPressed();
-        goBackMenu();
+    @Override
+    public void onBackPressed(){
+        Back();
     }
 
-    public void goBackMenu(){
-        startActivity(new Intent(this, Menu_Utama.class));
+    private void Back() {
+        Intent intent=new Intent(Menu_Harga.this,Menu_Utama.class);
+        startActivity(intent);
         finish();
     }
-
 }

@@ -39,6 +39,8 @@ public class Item_Kosan implements Serializable {
 
 	@SerializedName("no_hp")
 	private String nomorHp;
+	@SerializedName("distance")
+	private String distance;
 
 	public void setId(String id){
 		this.id = id;
@@ -122,10 +124,20 @@ public class Item_Kosan implements Serializable {
 
 	public void setNomorHp(String nomorHp){
 		this.nomorHp = nomorHp;
+
 	}
 
 	public String getNomorHp(){
 		return nomorHp;
+	}
+
+	public void setDistance(String distance){
+		this.distance = distance;
+
+	}
+
+	public String getDistance(){
+		return distance;
 	}
 
 	@Override
@@ -142,6 +154,7 @@ public class Item_Kosan implements Serializable {
 			",longitude = '" + longitude + '\'' + 
 			",id_user = '" + idUser + '\'' + 
 			",gambar = '" + gambar + '\'' +
+					",distance = '" + distance + '\'' +
 			",nomorHp = '" + nomorHp + '\'' +
 			"}";
 		}
