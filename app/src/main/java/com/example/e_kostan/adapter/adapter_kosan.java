@@ -60,12 +60,19 @@ public adapter_kosan (Context context, List<Item_Kosan> Data_Menu){
         holder.Fasilitas_Kosan.setText(Menu.get(position).getFasilitas());
         holder.Harga_Kosan.setText(Menu.get(position).getHarga());
         holder.No_Hp.setText(Menu.get(position).getNomorHp());
+        holder.Jarak.setText(Menu.get(position).getDistance());
         holder.Rating.setVisibility(View.GONE);
-        try {
-            String dString =Menu.get(position).getDistance();
+        String dString =Menu.get(position).getDistance();
+        if (dString.equals("null")){
+            holder.Jarak.setVisibility(View.GONE);
+        }else {
             Log.d("jarak",dString);
             String aString = dString.substring(5,3);
             holder.Jarak.setText(aString+" Km");
+        }
+        try {
+//            String dString =Menu.get(position).getDistance();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -218,7 +218,7 @@
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/darkgreen"
                 android:textSize="13dp"
-                android:text="20 Km"
+                android:text=""
                 android:id="@+id/jarak"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

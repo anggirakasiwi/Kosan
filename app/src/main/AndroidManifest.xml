@@ -32,6 +32,9 @@
         <activity android:name=".Menu.Menu_Utama" />
         <activity android:name=".Menu.Menu_Login" />
         <activity android:name=".Menu.Menu_Register" />
+        <activity android:name=".Menu.Menu_Termahal" />
+        <activity android:name=".Menu.Menu_Terdekat" />
+        <activity android:name=".Menu.Rating" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Menu.Menu_Splash_Screen">
             <intent-filter>
