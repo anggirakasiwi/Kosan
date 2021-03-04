@@ -39,8 +39,13 @@ public class Item_Kosan implements Serializable {
 
 	@SerializedName("no_hp")
 	private String nomorHp;
+
 	@SerializedName("distance")
 	private String distance;
+
+	@SerializedName("total_rating")
+	private String total_rating;
+
 
 	public void setId(String id){
 		this.id = id;
@@ -135,6 +140,14 @@ public class Item_Kosan implements Serializable {
 		this.distance = distance;
 
 	}
+	public String getTotal_rating(){
+		return total_rating;
+	}
+
+	public void setTotal_rating(String rating){
+		this.total_rating = rating;
+
+	}
 
 	public String getDistance(){
 		return distance;
@@ -152,7 +165,8 @@ public class Item_Kosan implements Serializable {
 			",durasi = '" + durasi + '\'' + 
 			",latitutude = '" + latitutude + '\'' + 
 			",longitude = '" + longitude + '\'' + 
-			",id_user = '" + idUser + '\'' + 
+			",id_user = '" + idUser + '\'' +
+					",total_rating = '" + total_rating + '\'' +
 			",gambar = '" + gambar + '\'' +
 					",distance = '" + distance + '\'' +
 			",nomorHp = '" + nomorHp + '\'' +

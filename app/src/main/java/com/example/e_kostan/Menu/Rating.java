@@ -43,7 +43,7 @@ public class Rating extends AppCompatActivity {
         loading.setMessage("Mohon Tunggu");
         loading.show();
         ApiServices api = InitRetrofit.getInstance().getApi();
-        Call<Response_Kosan> menuCall = api.Tampil_mahal();
+        Call<Response_Kosan> menuCall = api.Rating();
         menuCall.enqueue(new Callback<Response_Kosan>() {
             @Override
             public void onResponse(Call<Response_Kosan> call, Response<Response_Kosan> response) {
