@@ -54,67 +54,79 @@ public adapter_kosan (Context context, List<Item_Kosan> Data_Menu){
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    try {
         holder.Nama_Kosan.setText(Menu.get(position).getNamaKostan());
         holder.Durasi_Kosan.setText(Menu.get(position).getDurasi());
         holder.Alamat_Kosan.setText(Menu.get(position).getAlamat());
         holder.Fasilitas_Kosan.setText(Menu.get(position).getFasilitas());
         holder.Harga_Kosan.setText(Menu.get(position).getHarga());
         holder.No_Hp.setText(Menu.get(position).getNomorHp());
-        holder.Jarak.setText(Menu.get(position).getDistance());
-        holder.Rating.setVisibility(View.GONE);
-        String dString =Menu.get(position).getDistance();
-//        if (dString.equals("null")){
-//            holder.Jarak.setVisibility(View.GONE);
-//        }else {
-//
-//        }
-        try {
-//            String dString =Menu.get(position).getDistance();
-            Log.d("jarak",dString);
-            String aString = dString.substring(5,3);
-            holder.Jarak.setText(aString+" Km");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         final String urlgambar = InitRetrofit.BASE_URL+ Menu.get(position).getGambar();
         Picasso.with(context).load(urlgambar).into(holder.Gambar_Kosan);
-
-        FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(context);
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
+        String Rating = Menu.get(position).getTotal_rating();
+        if (Rating.equals("5")){
+            holder.Rating.setText("⭐⭐⭐⭐⭐");
+        } else if (Rating.equals("4")){
+            holder.Rating.setText("⭐⭐⭐⭐");
+        } else if (Rating.equals("3")){
+            holder.Rating.setText("⭐⭐⭐");
+        }else if (Rating.equals("2")){
+            holder.Rating.setText("⭐⭐");
+        }else if (Rating.equals("1")){
+            holder.Rating.setText("⭐");
+        }else if (Rating.equals("0")){
+            holder.Rating.setText("Belum Memiliki Rating");
+        }else {
+            holder.Rating.setText("⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐");
         }
-        mFusedLocation.getLastLocation().addOnSuccessListener((Activity) context, new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
-                    Latitude=location.getLatitude();
-                    Longitude=location.getLongitude();
-                    Log.d("latlong", String.valueOf(Latitude+Longitude));
-                    double Lat=Double.parseDouble(Menu.get(position).getLatitutude());
-                    double Long=Double.parseDouble(Menu.get(position).getLongitude());
-                    final int R = 6371; // Radious of the earth
-//                    double lat1, double lon1, double lat2, double lon2;
-                    Double latDistance = toRad(Latitude-Lat);
-                    Double lonDistance = toRad(Longitude-Long);
-                    Double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2) +
-                            Math.cos(toRad(Lat)) * Math.cos(toRad(Latitude)) *
-                                    Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
-                    Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                    Double distance = R * c;
-                    System.out.println("Jarak Antara latitude dan Logitude :" + distance);
-                    int A, B;
-                    String dString = Double.toString(distance);
-                    String aString = dString.substring(0,3);
-//                    holder.Jarak.setText(aString+" Km");
-                }
+//        holder.Jarak.setText(Menu.get(position).getDistance());
+//        if (Menu.get(position).getDistance().equals("null")){
+            FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(context);
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
             }
-        });
+            mFusedLocation.getLastLocation().addOnSuccessListener((Activity) context, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    if (location != null) {
+                        Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
+                        Latitude=location.getLatitude();
+                        Longitude=location.getLongitude();
+                        Log.d("latlong", String.valueOf(Latitude+Longitude));
+                        double Lat=Double.parseDouble(Menu.get(position).getLatitutude());
+                        double Long=Double.parseDouble(Menu.get(position).getLongitude());
+                        final int R = 3959; // Radious of the earth
+//                    double lat1, double lon1, double lat2, double lon2;
+                        Double latDistance = toRad(Lat-Latitude);
+                        Double lonDistance = toRad(Long-Longitude);
+                        Double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2) +
+                                Math.cos(toRad(Lat)) * Math.cos(toRad(Latitude)) *
+                                        Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+                        Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                        Double distance = R * c;
+                        System.out.println("Jarak Antara latitude dan Logitude :" + distance);
+                        int A, B;
+                        String dString = Double.toString(distance);
+                        String aString = dString.substring(0,3);
+                        holder.Jarak.setText(aString+" Km");
+                    }
+                }
+            });
+//        } else {
+//            String dString =Menu.get(position).getDistance();
+//            Toast.makeText(context, dString, Toast.LENGTH_SHORT).show();
+//            String aString = dString.substring(5,3);
+//            holder.Jarak.setText(aString+" Km");
+//        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
 
         holder.Detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Toast.makeText(context, "data", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, Menu_Detail.class);
                 intent.putExtra("ID", Menu.get(position).getId());
                 intent.putExtra("NamaKosan", Menu.get(position).getNamaKostan());
@@ -155,6 +167,7 @@ public adapter_kosan (Context context, List<Item_Kosan> Data_Menu){
     }
 
     private static Double toRad(Double value) {
+        Log.d("ffff", String.valueOf(value));
         return value * Math.PI / 180;
     }
 

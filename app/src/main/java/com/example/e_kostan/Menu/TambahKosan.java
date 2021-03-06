@@ -297,7 +297,7 @@ public class TambahKosan extends AppCompatActivity {
         loading.setMessage("Mohon Tunggu");
         loading.show();
         ApiServices api = InitRetrofit.getInstance().getApi();
-        Call<Response_Kosan> menuCall = api.Tampil_Kosan();
+        Call<Response_Kosan> menuCall = api.TampilKosan();
         menuCall.enqueue(new Callback<Response_Kosan>() {
             @Override
             public void onResponse(Call<Response_Kosan> call, Response<Response_Kosan> response) {

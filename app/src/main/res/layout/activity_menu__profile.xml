@@ -21,15 +21,21 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <com.mikhaellopez.circularimageview.CircularImageView
+<!--            <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--                android:id="@+id/gambarprofile"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_marginLeft="0dp"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:outlineSpotShadowColor="@color/darkgreen"-->
+<!--                android:src="@drawable/adduser" />-->
+            <ImageView
                 android:id="@+id/gambarprofile"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="0dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:outlineSpotShadowColor="@color/darkgreen"
-                android:src="@drawable/adduser" />
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="120dp"/>
 
         </RelativeLayout>
 
@@ -44,15 +50,6 @@
             android:textStyle="bold"
             android:textSize="20dp"
             android:layout_height="wrap_content"/>
-
-<!--        <ImageView-->
-<!--            android:id="@+id/gambarprofile"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_width="120dp"-->
-<!--            android:layout_height="120dp"/>-->
-
-
         <LinearLayout
             android:background="@drawable/bg_ijomuda"
             android:layout_width="match_parent"

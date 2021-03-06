@@ -17,6 +17,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.e_kostan.R;
+import com.example.e_kostan.adapter.Adapter_Terdekat;
 import com.example.e_kostan.adapter.adapter_kosan;
 import com.example.e_kostan.model.Item_Kosan;
 import com.example.e_kostan.respon.Response_Kosan;
@@ -78,8 +79,8 @@ public class Menu_Terdekat extends AppCompatActivity {
                     Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
                     // Display in Toast
                     tampildata(location.getLatitude(),location.getLongitude());
-                    Toast.makeText(Menu_Terdekat.this,"Lat : " + location.getLatitude() + " Long : " + location.getLongitude(),
-                            Toast.LENGTH_LONG).show();
+//                    Toast.makeText(Menu_Terdekat.this,"Lat : " + location.getLatitude() + " Long : " + location.getLongitude(),
+//                            Toast.LENGTH_LONG).show();
                     Tampil_Kosan(location.getLatitude(),location.getLongitude());
 //
 //                    Latitude=location.getLatitude();
@@ -111,7 +112,7 @@ public class Menu_Terdekat extends AppCompatActivity {
                     boolean status = response.body().isStatus();
                     if (status){
                         loading.dismiss();
-                        adapter_kosan adapter = new adapter_kosan(Menu_Terdekat.this, device);
+                        Adapter_Terdekat adapter = new Adapter_Terdekat(Menu_Terdekat.this, device);
                         recyclerView.setAdapter(adapter);
                     } else {
                         try {

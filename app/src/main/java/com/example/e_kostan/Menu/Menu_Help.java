@@ -16,7 +16,7 @@ TextView Help;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu__help);
         Help=(TextView)findViewById(R.id.help);
-        Help.setText(Html.fromHtml("<i>elfiramputri23@gmail.com</i> <br><i>elfiramputri23@gmail.com</i>"));
+        Help.setText(Html.fromHtml("<H1>Email</H1><br><p>elfiramputri23@gmail.com</p><br><H1>Telpon</H1> <br><p>081367374669</p>"));
     }
     @Override
     public void onBackPressed(){

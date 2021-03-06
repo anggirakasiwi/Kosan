@@ -31,17 +31,26 @@
               android:textStyle="bold"
               android:textSize="25dp"
               android:layout_height="wrap_content"/>
-          <TextView
-              android:id="@+id/help"
-              android:text="Help"
-              android:gravity="center"
-              android:layout_gravity="center"
-              android:layout_marginTop="20dp"
-              android:textColor="@color/darkgreen"
+          <androidx.cardview.widget.CardView
+              android:layout_marginRight="10dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginTop="10dp"
+              app:cardCornerRadius="10dp"
               android:layout_width="match_parent"
-              android:textStyle="bold"
-              android:textSize="25dp"
-              android:layout_height="wrap_content"/>
+              android:layout_height="300dp">
+              <TextView
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:id="@+id/help"
+                  android:text="Help"
+                  android:layout_marginTop="20dp"
+                  android:textColor="@color/darkgreen"
+                  android:layout_width="match_parent"
+                  android:textStyle="normal"
+                  android:textSize="20dp"
+                  android:layout_height="wrap_content"/>
+          </androidx.cardview.widget.CardView>
+
 
       </LinearLayout>
 

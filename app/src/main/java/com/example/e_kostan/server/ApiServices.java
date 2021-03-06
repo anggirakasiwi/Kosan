@@ -53,7 +53,14 @@ public interface ApiServices {
             @Field("confirm_password") String confrim_password
     );
     @GET("tampilkosan.php")
-    Call <Response_Kosan> Tampil_Kosan();
+    Call <Response_Kosan> TampilKosan();
+        @FormUrlEncoded
+        @POST("tampilkosan.php")
+        Call<Response_Kosan> Tampil_Kosan(
+                @Field("latitude") double latitude,
+                @Field("longitude") double longitude
+        );
+
 
     @FormUrlEncoded
     @POST("tambahkosan.php")
@@ -96,14 +103,34 @@ public interface ApiServices {
     @GET("tampiluser.php")
     Call <Response_User> Tampil_User();
 
-    @GET("tampil_murah.php")
-    Call <Response_Kosan> Tampil_Kosan_Murah();
+//    @GET("tampil_murah.php")
+//    Call <Response_Kosan> Tampil_Kosan_Murah();
+        @FormUrlEncoded
+        @POST("tampil_murah.php")
+        Call<Response_Kosan>Tampil_Kosan_Murah(
+                @Field("latitude") double latitude,
+                @Field("longitude") double longitude
+        );
 
-    @GET("tampil_termahal.php")
-    Call <Response_Kosan> Tampil_mahal();
+//    @GET("tampil_termahal.php")
+//    Call <Response_Kosan> Tampil_mahal();
+        @FormUrlEncoded
+        @POST("tampil_termahal.php")
+        Call<Response_Kosan>Tampil_mahal(
+                @Field("latitude") double latitude,
+                @Field("longitude") double longitude
+        );
 
-    @GET("rating.php")
-    Call <Response_Kosan> Rating();
+
+
+//    @GET("rating.php")
+//    Call <Response_Kosan> Rating();
+        @FormUrlEncoded
+        @POST("Rating.php")
+        Call<Response_Kosan> Rating(
+                @Field("latitude") double latitude,
+                @Field("longitude") double longitude
+        );
 
 //    @GET("tampil_terdekat.php")
 //    Call<Response_Kosan> Tampil_Terdekat_mas();

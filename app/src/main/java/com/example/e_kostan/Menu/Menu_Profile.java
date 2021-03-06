@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -29,7 +30,7 @@ SharedPrefManager sharedPrefManager;
         Email=(TextView) findViewById(R.id.emailprofile);
         Email.setText(sharedPrefManager.getSPEmail());
 //        Password=(TextView)findViewById(R.id.passwordprofile);
-        Password.setText(sharedPrefManager.getSPPassword());
+//        Password.setText(sharedPrefManager.getSPPassword());
         Nama=(TextView) findViewById(R.id.namaprofile);
         Nama.setText(sharedPrefManager.getSPNama());
         No_Hp=(TextView) findViewById(R.id.no_hp_profile);
@@ -42,10 +43,10 @@ SharedPrefManager sharedPrefManager;
         Jenis_Akun.setText(sharedPrefManager.getSPRole());
         GambarProfile=(ImageView) findViewById(R.id.gambarprofile);
         final String urlgambar = InitRetrofit.BASE_URL+sharedPrefManager.getSpGambar();
+        Log.d("image",urlgambar);
         Picasso.with(Menu_Profile.this).load(urlgambar).into(GambarProfile);
         Logout=(Button) findViewById(R.id.logoutprofile);
         EditProfile=(Button) findViewById(R.id.editprofile);
-
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
