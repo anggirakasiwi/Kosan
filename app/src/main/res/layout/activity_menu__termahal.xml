@@ -10,13 +10,22 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Data Kosan Termahal"
+            android:textColor="@color/darkgreen"
+            android:textSize="25dp"
+            android:textStyle="bold" />
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="20dp"
             android:background="@color/transparant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/listhargatermahal"/>
-
     </LinearLayout>
 
 </ScrollView>

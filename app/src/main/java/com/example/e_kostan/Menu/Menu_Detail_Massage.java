@@ -1,12 +1,23 @@
 package com.example.e_kostan.Menu;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +32,8 @@ import com.example.e_kostan.model.Item_pesan;
 import com.example.e_kostan.respon.Response_Pesan;
 import com.example.e_kostan.server.ApiServices;
 import com.example.e_kostan.server.InitRetrofit;
+import com.example.e_kostan.server.Koneksi_RMQ;
+import com.example.e_kostan.server.MyRmq;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +46,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Menu_Detail_Massage extends AppCompatActivity {
+public class Menu_Detail_Massage extends AppCompatActivity implements MyRmq {
     TextView NamaPengirim;
     EditText IsiPesan;
     Button KirimPesan;
@@ -41,10 +54,12 @@ public class Menu_Detail_Massage extends AppCompatActivity {
     ProgressDialog loading;
     String penerima,pengirim;
     SharedPrefManager sharedPrefManager;
+    Koneksi_RMQ koneksi_rmq;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu__detail__massage);
+        setContentView(R.layout.activity_menu_detail_massage);
         loading=new ProgressDialog(this);
         sharedPrefManager=new SharedPrefManager(this);
         NamaPengirim=(TextView)findViewById(R.id.namapengirim);
@@ -52,8 +67,9 @@ public class Menu_Detail_Massage extends AppCompatActivity {
         KirimPesan=(Button)findViewById(R.id.kirimpesan);
         recyclerView=(RecyclerView)findViewById(R.id.listdetailpesan);
         recyclerView1=(RecyclerView)findViewById(R.id.listdetailpesan1);
+        koneksi_rmq=new Koneksi_RMQ(this);
         Intent intent = getIntent();
-       String id = intent.getStringExtra("ID");
+        String id = intent.getStringExtra("ID");
         String isipesan = intent.getStringExtra("ISIPESAN");
         pengirim = intent.getStringExtra("PENGIRIM");
         penerima = sharedPrefManager.getSPEmail();
@@ -68,8 +84,14 @@ public class Menu_Detail_Massage extends AppCompatActivity {
         loading.setMessage("Loading.....");
         loading.setCancelable(true);
         loading.show();
-        TampilPesan(penerima,pengirim);
-        TampilPesan1(pengirim,penerima);
+        try {
+            TampilPesan(penerima,pengirim);
+            TampilPesan1(pengirim,penerima);
+            getpesan(penerima, pengirim);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         KirimPesan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,7 +165,17 @@ public class Menu_Detail_Massage extends AppCompatActivity {
                             TampilPesan(penerima,pengirim);
                             TampilPesan1(pengirim,penerima);
                             IsiPesan.setText("");
+                            getpesan(penerima,pengirim);
                             Log.d("pesan",penerima+pengirim);
+                            String Jenis_Akun = sharedPrefManager.getSPRole();
+                            if (sharedPrefManager.getSPRole().equals("Pemilik")) {
+                                koneksi_rmq.setupConnectionFactory();
+                                koneksi_rmq.publish("Ada Pesan baru","penerima");
+                            } else if (sharedPrefManager.getSPRole().equals("Penyewa")){
+                                koneksi_rmq.setupConnectionFactory();
+                                koneksi_rmq.publish("Ada Pesan baru","pengirim");
+                            } else {
+                            }
                         } else {
                             try {
                                 Log.d("response api", jsonRESULTS.toString());
@@ -187,9 +219,9 @@ public class Menu_Detail_Massage extends AppCompatActivity {
     }
 
     private void TampilPesan(String penerima,String pengirim) {
-        loading.setCancelable(true);
-        loading.setMessage("Mohon Tunggu");
-        loading.show();
+//        loading.setMessage("Mohon Tunggu");
+//        loading.setCancelable(true);
+//        loading.show();
         ApiServices api = InitRetrofit.getInstance().getApi();
         Call<Response_Pesan> menuCall = api.TampilPesanDetail(pengirim,penerima);
         menuCall.enqueue(new Callback<Response_Pesan>() {
@@ -226,5 +258,77 @@ public class Menu_Detail_Massage extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void Berhasil(String message) {
+
+    }
+
+    @Override
+    public void Gagal() {
+
+    }
+
+    public void getpesan(String penerima, String pengirim){
+        koneksi_rmq.setupConnectionFactory();
+        final Handler incomingMessageHandler = new Handler() {
+            @SuppressLint("HandlerLeak")
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void handleMessage(Message msg) {
+                String message = msg.getData().getString("msg");
+                Log.d("RMQMessage", message);
+                String s = message.toString();
+                String[] tokens = s.split("");
+                showNotification("Ada Pesan Baru", message);
+                TampilPesan(penerima,pengirim);
+                TampilPesan1(pengirim,penerima);
+            }
+        };
+        String data ;
+        if (sharedPrefManager.getSPRole().equals("Pemilik")) {
+            data="pengirim";
+            Thread subscribeThread = new Thread();
+            koneksi_rmq.subscribe(incomingMessageHandler, subscribeThread, data, data);
+        } else if (sharedPrefManager.getSPRole().equals("Penyewa")){
+            data="penerima";
+            Thread subscribeThread = new Thread();
+            koneksi_rmq.subscribe(incomingMessageHandler, subscribeThread, data, data);
+        } else {
+        }
+
+    }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void showNotification(String title, String body) {
+        Context context = getApplicationContext();
+        Intent intent = getIntent();
+
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        int notificationId = 1;
+        String channelId = "channel-01";
+        String channelName = "Channel Name";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel mChannel = new NotificationChannel(
+                    channelId, channelName, importance);
+            notificationManager.createNotificationChannel(mChannel);
+        }
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
+                .setSmallIcon(R.drawable.notif5)
+                .setContentTitle(title)
+                .setContentText(body);
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+        stackBuilder.addNextIntent(intent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
+                0,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        );
+        mBuilder.setContentIntent(resultPendingIntent);
+
+        notificationManager.notify(notificationId, mBuilder.build());
     }
 }

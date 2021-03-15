@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.e_kostan.MainActivity;
+import com.example.e_kostan.Menu_Pemilik.Dashboard_Pemilik;
 import com.example.e_kostan.R;
 import com.example.e_kostan.Session.SharedPrefManager;
 import com.example.e_kostan.server.ApiConfig;
@@ -246,12 +247,12 @@ SharedPrefManager sharedPrefManager;
     }
 
 
-    @Override
-    public void onBackPressed(){
-        Back();
-    }
+//    @Override
+//    public void onBackPressed(){
+//        Kembali();
+//    }
 
-    private void Back() {
+    private void Kembali() {
         Intent intent=new Intent(EditProfile.this,Menu_Utama.class);
         startActivity(intent);
         finish();
@@ -319,5 +320,33 @@ SharedPrefManager sharedPrefManager;
             return cursor.getInt(columnIndex);
         }
         return 0;
+    }
+
+    @Override
+    public void onBackPressed(){
+        Back();
+    }
+
+    private void Back() {
+//        Intent intent=new Intent(Menu_Massage.this,Menu_Utama.class);
+//        startActivity(intent);
+//        finish();
+        String Jenis_Akun = sharedPrefManager.getSPRole();
+        if (sharedPrefManager.getSPRole().equals("Pemilik")) {
+//            startActivity(new Intent(Menu_Login.this, Dashboard_Pemilik.class)
+//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
+//            Toast.makeText(this, "Penyewa", Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(EditProfile.this, Dashboard_Pemilik.class);
+            startActivity(intent);
+            finish();
+        } else if (sharedPrefManager.getSPRole().equals("Penyewa")){
+            Intent intent=new Intent(EditProfile.this,Menu_Utama.class);
+            startActivity(intent);
+            finish();
+//            Toast.makeText(this, "Penyewa", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Terjadi Kesalahan", Toast.LENGTH_SHORT).show();
+        }
     }
 }
